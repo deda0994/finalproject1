@@ -1,0 +1,14 @@
+<a href="home.html">Home</a>
+<a href="about.html">About</a>
+<a href="contactus.html">Contact Us</a>
+<a href="products.html">Products</a>
+<a href="upload.html">Upload</a>
+<a href="signin.html">Sign In</a>
+<hr/>
+
+<h2>Products</h2>
+<ul>
+  <li ng-repeat="product in controller.products">
+    {{product.name}}, {{product.price|currency}}
+  </li>
+</ul>

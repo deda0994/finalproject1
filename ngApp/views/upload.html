@@ -1,0 +1,10 @@
+<a href="home.html">Home</a>
+<a href="about.html">About</a>
+<a href="contactus.html">Contact Us</a>
+<a href="products.html">Products</a>
+<a href="upload.html">Upload</a>
+<a href="signin.html">Sign In</a>
+<hr/>
+<a href="/add">Add File</a>
+<button ng-click="controller.pickFile()">Upload</button>
+<img ng-src="{{controller.file.url | fpConvert:{w: 400} }}" alt="{{controller.file.filename}}" />
