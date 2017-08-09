@@ -5,7 +5,9 @@ namespace stockpop.Controllers {
     public deleteFile(id){
       this.fileService.removeFile(id);
     }
-    constructor(fileService:stockpop.Services.FileService) {
+
+    constructor(private fileService)
+    {
       this.file = fileService.list();
 
     }
@@ -37,18 +39,18 @@ namespace stockpop.Controllers {
     }
 
       export class EditFileController {
-        public File
-        public Id
+        public file
+        public id
         public editFile(){
           this.file._id = this.id;
           this.fileService.SaveFile(this.file);
         }
         constructor(
+          private fileService,
           public $stateParams,
           private movieService
         ) {
           this.id =$stateParams['id'];
         }
         }
-
-      }
+      

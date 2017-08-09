@@ -1,7 +1,7 @@
 "use strict";
 var express = require("express");
 var passport = require("passport");
-var user = require('../models/user');
+var User = require('../models/user');
 var router = express.Router();
 router.post('/Register', function (req, res, next) {
     var user = new User();
@@ -25,16 +25,5 @@ router.post('/Login/Local', function (req, res, next) {
             return res.json({ token: user.generateJWT() });
         return res.status(400).send(info);
     })(req, res, next);
-});
-router.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }));
-router.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/#/account' }), function (req, res) {
-    if (req.isAuthenticated()) {
-        var token = { token: req.user.generateJWT() };
-        console.log(token.token);
-        res.redirect('/#/Token/' + token.token);
-    }
-    else {
-        res.send("You are not authenticated.");
-    }
 });
 module.exports = router;

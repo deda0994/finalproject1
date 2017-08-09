@@ -6,6 +6,7 @@ var stockpop;
     (function (Controllers) {
         var HomeController = (function () {
             function HomeController(fileService) {
+                this.fileService = fileService;
                 this.file = fileService.list();
             }
             HomeController.prototype.deleteFile = function (id) {
@@ -44,7 +45,8 @@ var stockpop;
     })(Controllers = stockpop.Controllers || (stockpop.Controllers = {}));
 })(stockpop || (stockpop = {}));
 var EditFileController = (function () {
-    function EditFileController($stateParams, movieService) {
+    function EditFileController(fileService, $stateParams, movieService) {
+        this.fileService = fileService;
         this.$stateParams = $stateParams;
         this.movieService = movieService;
         this.id = $stateParams['id'];
