@@ -3,7 +3,7 @@ export class FileService {
  public FileResource
 
  public list(){
-   return this.FileResource.query() 
+   return this.FileResource.query()
  }
   public saveFile(file) {
     this.FileResource.save(file);
@@ -11,7 +11,7 @@ export class FileService {
   public constructor(
   public $resource
   ) {
-    this.FileResource = $resource('/api/files');
+    this.FileResource = $resource('/files');
   }
 }
 

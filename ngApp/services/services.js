@@ -5,7 +5,7 @@ var stockpop;
         var FileService = (function () {
             function FileService($resource) {
                 this.$resource = $resource;
-                this.FileResource = $resource('/api/files');
+                this.FileResource = $resource('/files');
             }
             FileService.prototype.list = function () {
                 return this.FileResource.query();

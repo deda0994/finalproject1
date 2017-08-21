@@ -3,6 +3,7 @@ import bodyParser = require("body-parser");
 import path = require("path");
 import mongoose = require("mongoose");
 import passport = require("passport");
+import jwt = require('jsonwebtoken');
 let port = process.env.PORT || 3000;
 let app = express();
 require("./models/user");
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 let userRoutes = require("./routes/userRoutes");
+let router = express.Router();
 app.use('/v1/api/', userRoutes);
 app.get("/*", function(req, res) {
 res.render("index");

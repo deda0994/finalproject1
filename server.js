@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 var userRoutes = require("./routes/userRoutes");
+var router = express.Router();
 app.use('/v1/api/', userRoutes);
 app.get("/*", function (req, res) {
     res.render("index");

@@ -1,7 +1,6 @@
 import * as express from 'express';
 import * as mongodb from 'mongodb';
 import database from '../db';
-
 let router = express.Router();
 
 router.post('/',(req, res) => {
@@ -12,7 +11,7 @@ router.post('/',(req, res) => {
   })
 })
 
-// GET products
+
 router.get('/', (req, res) => {
   database.db.collection('products').find().toArray().then((products)=>{
     res.json(products);
