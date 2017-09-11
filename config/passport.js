@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var passport = require("passport");
 var mongoose = require("mongoose");
 var LocalStrategy = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
 var User = mongoose.model('User');
 passport.serializeUser(function (user, done) {
     done(null, user);

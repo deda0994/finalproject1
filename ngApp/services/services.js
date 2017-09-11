@@ -1,21 +1,24 @@
-var stockpop;
-(function (stockpop) {
+var stockpop_3;
+(function (stockpop_3) {
     var Services;
     (function (Services) {
         var FileService = (function () {
             function FileService($resource) {
                 this.$resource = $resource;
-                this.FileResource = $resource('/files');
+                this.FileResource = $resource('/api/files/:id');
             }
-            FileService.prototype.list = function () {
+            FileService.prototype.saveFile = function (file) {
+                return this.FileResource.save(file);
+            };
+            FileService.prototype.getFiles = function () {
                 return this.FileResource.query();
             };
-            FileService.prototype.saveFile = function (file) {
-                this.FileResource.save(file);
+            FileService.prototype.deleteFile = function (id) {
+                return this.FileResource.delete({ id: id }).$promise;
             };
             return FileService;
         }());
         Services.FileService = FileService;
-        angular.module('stockpop').service('fileService', FileService);
-    })(Services = stockpop.Services || (stockpop.Services = {}));
-})(stockpop || (stockpop = {}));
+        angular.module('stockpop-3').service('FileService', FileService);
+    })(Services = stockpop_3.Services || (stockpop_3.Services = {}));
+})(stockpop_3 || (stockpop_3 = {}));

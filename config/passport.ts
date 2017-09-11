@@ -1,7 +1,6 @@
 import passport = require('passport');
 import mongoose = require('mongoose');
 let LocalStrategy = require('passport-local').Strategy;
-let FacebookStrategy = require('passport-facebook').Strategy;
 let User = mongoose.model('User');
 passport.serializeUser(function(user, done) {
 done(null, user);

@@ -1,60 +1,41 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var stockpop;
-(function (stockpop) {
+var stockpop_3;
+(function (stockpop_3) {
     var Controllers;
     (function (Controllers) {
         var HomeController = (function () {
-            function HomeController(fileService) {
-                this.fileService = fileService;
-                this.file = fileService.list();
+            function HomeController(filepickerService, $scope) {
+                this.filepickerService = filepickerService;
+                this.$scope = $scope;
             }
-            HomeController.prototype.deleteFile = function (id) {
-                this.fileService.removeFile(id);
+            HomeController.prototype.pickFile = function () {
+                this.filepickerService.pick({
+                    mimetype: 'image/*'
+                }, this.fileUploaded.bind(this));
+            };
+            HomeController.prototype.fileUploaded = function (file) {
+                this.file = file;
+                this.productToSave.url = this.file.url;
+                this.$scope.$apply();
             };
             return HomeController;
         }());
         Controllers.HomeController = HomeController;
-        var AboutController = (function () {
-            function AboutController() {
-            }
-            return AboutController;
-        }());
-        Controllers.AboutController = AboutController;
-        var ContactUsController = (function () {
-            function ContactUsController() {
-            }
-            return ContactUsController;
-        }());
-        Controllers.ContactUsController = ContactUsController;
         var AddFileController = (function () {
-            function AddFileController(filepickerService, $scope) {
-                this.filepickerService = filepickerService;
-                this.$scope = $scope;
+            function AddFileController(fileService) {
+                this.fileService = fileService;
             }
-            AddFileController.prototype.pickFile = function () {
-                this.filepickerService.pick({ mimetype: 'image/*' }, this.fileUploaded.bind(this));
-            };
-            AddFileController.prototype.fileUploaded = function (file) {
-                this.file = file;
-                this.$scope.$apply();
+            AddFileController.prototype.addFile = function () {
+                this.fileService.saveFile(this.file);
             };
             return AddFileController;
         }());
         Controllers.AddFileController = AddFileController;
-    })(Controllers = stockpop.Controllers || (stockpop.Controllers = {}));
-})(stockpop || (stockpop = {}));
-var EditFileController = (function () {
-    function EditFileController(fileService, $stateParams, movieService) {
-        this.fileService = fileService;
-        this.$stateParams = $stateParams;
-        this.movieService = movieService;
-        this.id = $stateParams['id'];
-    }
-    EditFileController.prototype.editFile = function () {
-        this.file._id = this.id;
-        this.fileService.SaveFile(this.file);
-    };
-    return EditFileController;
-}());
-exports.EditFileController = EditFileController;
+        var EditFileController = (function () {
+            function EditFileController() {
+            }
+            return EditFileController;
+        }());
+        Controllers.EditFileController = EditFileController;
+        angular.module('stockpop-3').controller('HomeController', HomeController);
+    })(Controllers = stockpop_3.Controllers || (stockpop_3.Controllers = {}));
+})(stockpop_3 || (stockpop_3 = {}));

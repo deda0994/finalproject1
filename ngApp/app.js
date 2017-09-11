@@ -1,39 +1,24 @@
-var stockpop;
-(function (stockpop) {
-    angular.module('stockpop', ['ui.router', 'ngResource', 'ui.bootstrap', 'angular-filepicker'])
-        .config(function (filepickerProvider) {
-        filepickerProvider.setKey('A4W2zvroPRtSCJ4jjATcdz');
-    })
+var stockpop_3;
+(function (stockpop_3) {
+    angular.module('stockpop_3', ['ui.router', 'ngResource', 'ui.bootstrap'])
         .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider
             .state('home', {
             url: '/',
             templateUrl: '/ngApp/views/home.html',
-            controller: stockpop.Controllers.HomeController,
-            controllerAs: 'vm'
-        })
-            .state('about', {
-            url: '/about',
-            templateUrl: '/ngApp/views/about.html',
-            controller: stockpop.Controllers.AboutController,
-            controllerAs: 'vm'
-        })
-            .state('contact', {
-            url: '/contact',
-            templateUrl: '/ngApp/views/contactus.html',
-            controller: stockpop.Controllers.ContactUsController,
+            controller: stockpop_3.Controllers.HomeController,
             controllerAs: 'vm'
         })
             .state('add', {
             url: '/add',
             templateUrl: '/ngApp/views/addFile.html',
-            controller: stockpop.Controllers.AddFileController,
+            controller: stockpop_3.Controllers.AddFileController,
             controllerAs: 'vm'
         })
             .state('edit', {
             url: '/edit/:id',
             templateUrl: '/ngApp/views/editFile.html',
-            controller: stockpop.Controllers.EditFileController,
+            controller: stockpop_3.Controllers.EditFileController,
             controllerAs: 'vm'
         })
             .state('notFound', {
@@ -43,4 +28,4 @@ var stockpop;
         $urlRouterProvider.otherwise('/notFound');
         $locationProvider.html5Mode(true);
     });
-})(stockpop || (stockpop = {}));
+})(stockpop_3 || (stockpop_3 = {}));

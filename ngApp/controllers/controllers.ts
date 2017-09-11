@@ -1,56 +1,39 @@
-namespace stockpop.Controllers {
+namespace stockpop_3.Controllers {
 
-  export class HomeController {
-    public file
-    public deleteFile(id){
-      this.fileService.removeFile(id);
-    }
+    export class HomeController {
+      public file;
+      public productToSave;
 
-    constructor(private fileService)
-    {
-      this.file = fileService.list();
+      public pickFile (){
+        this.filepickerService.pick({
+          mimetype: 'image/*'
+        }, this.fileUploaded.bind(this));
+      }
+      public fileUploaded(file){
+        this.file = file;
+        this.productToSave.url = this.file.url;
+        this.$scope.$apply();
+      }
+      constructor(private filepickerService, private $scope: ng.IScope){
 
-    }
-  }
-  export class AboutController {
+      }
+   }
+    export class AddFileController {
+      public file
 
-  }
-  export class ContactUsController {
+      public addFile() {
+        this.fileService.saveFile(this.file);
+      }
+      constructor(
+        private fileService
+      ) {
 
-  }
-  export class AddFileController {
-    public file;
-
-  public pickFile() {
-    this.filepickerService.pick(
-      { mimetype: 'image/*' },
-      this.fileUploaded.bind(this)
-    );
-  }
-
-  public fileUploaded(file) {
-    // save file url to database
-    this.file = file;
-    this.$scope.$apply(); // force page to update
-  }
-
-  constructor(private filepickerService, private $scope: ng.IScope) { }
       }
     }
 
-      export class EditFileController {
-        public file
-        public id
-        public editFile(){
-          this.file._id = this.id;
-          this.fileService.SaveFile(this.file);
-        }
-        constructor(
-          private fileService,
-          public $stateParams,
-          private movieService
-        ) {
-          this.id =$stateParams['id'];
-        }
-        }
-      
+    export class EditFileController {
+    }
+
+ angular.module('stockpop-3').controller('HomeController', HomeController);
+
+}

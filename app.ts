@@ -32,7 +32,7 @@ app.use('/api', express.static(path.join(__dirname, 'api')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/files', files)
+app.use('/files', files);
 
 
 // redirect 404 to home for the sake of AngularJS client-side routes

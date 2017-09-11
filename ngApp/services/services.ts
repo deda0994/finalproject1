@@ -1,19 +1,25 @@
-namespace stockpop.Services {
-export class FileService {
- public FileResource
+namespace stockpop_3.Services {
+  export class FileService {
+    public FileResource;
 
- public list(){
-   return this.FileResource.query()
- }
-  public saveFile(file) {
-    this.FileResource.save(file);
-  }
-  public constructor(
-  public $resource
-  ) {
-    this.FileResource = $resource('/files');
-  }
-}
 
-  angular.module('stockpop').service('fileService', FileService);
+    public saveFile(file) {
+      return this.FileResource.save(file);
+    }
+    public getFiles() {
+     return this.FileResource.query();
+    }
+
+   public deleteFile(id) {
+     return this.FileResource.delete({id: id}).$promise;
+    }
+
+   constructor(
+     public $resource
+   ) {
+     this.FileResource = $resource('/api/files/:id');
+    }
+  }
+
+  angular.module('stockpop-3').service('FileService',FileService);
     }

@@ -1,12 +1,39 @@
-<a href="home.html">Home</a>
-<a href="about.html">About</a>
-<a href="contactus.html">Contact Us</a>
-<a href="products.html">Products</a>
-<a href="upload.html">Upload</a>
-<a href="signin.html">Sign In</a>
-<hr/>
-<center><img src="https://pbs.twimg.com/profile_images/1673938584/big_pop_logo.jpg"/></center>
-<center><h1>StockPop</h1><center>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
 
+<center><h1>Welcome to StockPop</h1><center/>
+</p>
+</div>
+<center><img src="https://pbs.twimg.com/profile_images/1673938584/big_pop_logo.jpg"/></center>
 <h2>Where Anyone Can Be An Artist</h2>
+<p> At Stockpop, We give regular artists the ability to create, upload, and sell their stock photos,music, videography etc, to content creators around the world.</p>
 <img src="https://udemy-images.udemy.com/course/750x422/394968_538b_7.jpg"/>
+
+<h1>Upload Your Work Here</h1>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="Stockpop-3">
+<head>
+
+</head>
+<body ng-controller="HomeController as controller">
+<button ng-click="controller.pickFile()">Upload</button>
+<img ng-src="{{controller.file.url | fpConvert:{w: 400} }}" alt="{{controller.file.filename}}" />
+<script src="/Scripts/jquery-2.1.4.min.js"></script>
+<script src="/Scripts/angular.min.js"></script>
+<script type="text/javascript" src="//api.filepicker.io/v2/filepicker.js"></script>
+<!-- download from https://raw.githubusercontent.com/filepicker/filepicker-angular/develop/dist/angular_filepicker.min.js -->
+<script src="/Scripts/angular_filepicker.min.js"></script>
+<script src="/ngApp/app.js"></script>
+<script src="/ngApp/controllers.js"></script>
+</body>
+</html>
+
+<a href="/add">Add File</a>
+
+<ul>
+  <li ng-repeat="m in vm.file">{{m.media}} <a href="/editFile/{{m._id}}">Edit</a> <a href="#" ng-click="vm.deleteFile(m._id)">Delete</a></li>
+</ul>
