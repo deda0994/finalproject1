@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
+<head><title>Login form</title></head>
+<body>
+  <h2>User Login</h2>
+
+<form action-"welcome.php" method-"POST">
+  <input type="email" name="email" id="email"><br>
+  <input type="password" name="password" id="password"><br>
+  <input type="submit" name="submit" id="btn">
+</form>
   <link rel="stylesheet" href="/css/site.css">
 </head>
-<body>
+</body>
 
 <center><h1>Welcome to StockPop</h1><center/>
 </p>
@@ -15,22 +22,15 @@
 <img src="https://udemy-images.udemy.com/course/750x422/394968_538b_7.jpg"/>
 
 <h1>Upload Your Work Here</h1>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="Stockpop-3">
-<head>
 
-</head>
-<body ng-controller="HomeController as controller">
-<button ng-click="controller.pickFile()">Upload</button>
-<img ng-src="{{controller.file.url | fpConvert:{w: 400} }}" alt="{{controller.file.filename}}" />
-<script src="/Scripts/jquery-2.1.4.min.js"></script>
-<script src="/Scripts/angular.min.js"></script>
-<script type="text/javascript" src="//api.filepicker.io/v2/filepicker.js"></script>
-<!-- download from https://raw.githubusercontent.com/filepicker/filepicker-angular/develop/dist/angular_filepicker.min.js -->
-<script src="/Scripts/angular_filepicker.min.js"></script>
-<script src="/ngApp/app.js"></script>
-<script src="/ngApp/controllers.js"></script>
-</body>
-</html>
+
+
+
+
+
+
+<button ng-click="vm.pickFile()">Upload</button>
+<img ng-src="{{vm.file.url | fpConvert:{w: 400} }}" alt="{{vm.file.filename}}" />
 
 <a href="/add">Add File</a>
 

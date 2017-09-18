@@ -21,5 +21,5 @@ namespace stockpop_3.Services {
     }
   }
 
-  angular.module('stockpop-3').service('FileService',FileService);
+  angular.module('stockpop_3').service('FileService',FileService);
     }

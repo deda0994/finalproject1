@@ -1,11 +1,16 @@
 namespace stockpop_3 {
 
-    angular.module('stockpop_3', ['ui.router', 'ngResource', 'ui.bootstrap'])
+    angular.module('stockpop_3', ['ui.router', 'ngResource', 'ui.bootstrap', 'angular-filepicker'])
     .config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $locationProvider: ng.ILocationProvider,
+        filepickerProvider
          ) => {
+
+           // GET API KEY FROM https://www.filestack.com/
+
+           filepickerProvider.setKey('A4W2zvroPRtSCJ4jjATcdz');
 
         // Define routes
         $stateProvider

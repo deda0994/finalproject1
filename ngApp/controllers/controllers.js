@@ -36,6 +36,6 @@ var stockpop_3;
             return EditFileController;
         }());
         Controllers.EditFileController = EditFileController;
-        angular.module('stockpop-3').controller('HomeController', HomeController);
+        angular.module('stockpop_3').controller('HomeController', HomeController);
     })(Controllers = stockpop_3.Controllers || (stockpop_3.Controllers = {}));
 })(stockpop_3 || (stockpop_3 = {}));

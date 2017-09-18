@@ -19,6 +19,6 @@ var stockpop_3;
             return FileService;
         }());
         Services.FileService = FileService;
-        angular.module('stockpop-3').service('FileService', FileService);
+        angular.module('stockpop_3').service('FileService', FileService);
     })(Services = stockpop_3.Services || (stockpop_3.Services = {}));
 })(stockpop_3 || (stockpop_3 = {}));

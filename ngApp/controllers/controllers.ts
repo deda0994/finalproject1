@@ -9,11 +9,13 @@ namespace stockpop_3.Controllers {
           mimetype: 'image/*'
         }, this.fileUploaded.bind(this));
       }
+
       public fileUploaded(file){
         this.file = file;
         this.productToSave.url = this.file.url;
         this.$scope.$apply();
       }
+
       constructor(private filepickerService, private $scope: ng.IScope){
 
       }
@@ -34,6 +36,6 @@ namespace stockpop_3.Controllers {
     export class EditFileController {
     }
 
- angular.module('stockpop-3').controller('HomeController', HomeController);
+ angular.module('stockpop_3').controller('HomeController', HomeController);
 
 }

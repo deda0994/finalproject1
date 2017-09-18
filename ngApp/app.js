@@ -1,7 +1,8 @@
 var stockpop_3;
 (function (stockpop_3) {
-    angular.module('stockpop_3', ['ui.router', 'ngResource', 'ui.bootstrap'])
-        .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    angular.module('stockpop_3', ['ui.router', 'ngResource', 'ui.bootstrap', 'angular-filepicker'])
+        .config(function ($stateProvider, $urlRouterProvider, $locationProvider, filepickerProvider) {
+        filepickerProvider.setKey('A4W2zvroPRtSCJ4jjATcdz');
         $stateProvider
             .state('home', {
             url: '/',
